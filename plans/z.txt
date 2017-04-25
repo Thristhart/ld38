@@ -1,0 +1,5 @@
+-Defence CD-
+-Disable enemy buttons- correctly?
+Player attack button.
+Enemy Currency.
+Enemy animations??

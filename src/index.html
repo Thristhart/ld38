@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <title>+1💰 - Ludum Dare 38</title>
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div id="viewport">
+      <div id="display">
+        <button class="squareButton" id="centerButton">+1💰</button>
+        <button class="squareButton" id="shieldButton">🛡️</button>
+        <button class="squareButton" id="swordButton">⚔️</button>
+        <span id="shieldUpgradesLabel"></span>
+        <span id="swordUpgradesLabel"></span>
+        
+        <span id="currency">0</span>
+        
+        <div id="connector1"></div>
+        <div id="connector2"></div>
+        <button class="squareButton" id="upgradeShield">🛠️</button>
+        <span id="upgradeShieldCost">25</span>
+        <button class="squareButton" id="upgradeSword">🛠️</button>
+        <span id="upgradeSwordCost">25</span>
+        
+        
+        <button class="squareButton enemy" id="enemyCenterButton" disabled="disabled">+1💰</button>
+        <button class="squareButton enemy" id="enemyShieldButton" disabled="disabled">🛡️</button>
+        <button class="squareButton enemy" id="enemySwordButton" disabled="disabled">⚔️</button>
+        
+        <span class="enemy" id="enemyCurrency">0</span>
+        
+        <div id="achievementLog">
+        </div>
+        
+        <input type="range" id="researchControl" value=0></input>
+        <div id="researchPointContainer"></div>
+        <span id="researchPoints">0</span>
+        
+        <button class="squareButton" id="upgradeSwordResearch">🛠️</button>
+        <span id="upgradeSwordResearchCost">10</span>
+        
+        <button class="squareButton" id="upgradeShieldResearch">🛠️</button>
+        <span id="upgradeShieldResearchCost">10</span>
+        
+        <div id="shieldResearchConnector1"></div>
+        <div id="shieldResearchConnector2"></div>
+        <div id="shieldResearchConnector3"></div>
+        <div id="shieldResearchConnector4"></div>
+        
+        <div id="swordResearchConnector1"></div>
+        <div id="swordResearchConnector2"></div>
+        <div id="swordResearchConnector3"></div>
+        <div id="swordResearchConnector4"></div>
+        
+        <audio id="jukebox" src="./static/ROVERBOARD_WITH_BARK.mp3" controls></audio>
+        <script type="text/javascript">document.querySelector("#jukebox").volume = 0.2</script>
+        
+        <div id="doggo"></div>
+        
+        <p id="endMessage">
+          Ideally there would be yet another layer of complexity here, but we ran out of time (It is Ludum Dare, after all.) 
+          So watch this space for more layers of stuff to do as we make a post-compo version. 
+          In the meantime, please look at the top of the screen to enjoy the rockin' audio track from <a href="http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=3164">ROVERBOARD ⚔ HOVERSWORD</a>, an earlier entry of ours.
+        </p>
+        
+      </div>
+    </div>
+    <div id="overlay">
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.23.0/polyfill.min.js"></script>
+    
+    <link rel="stylesheet" href="./index.css" type="text/css"></link>
+    <link rel="stylesheet" href="./css/overlay.css" type="text/css"></link>
+    
+    <script src="./controllers/gameloop.js"></script>
+    <script src="./controllers/achievements.js"></script>
+    <script src="./controllers/audio.js"></script>
+    <script src="./controllers/particle.js"></script>
+    <script src="./controllers/enemy.js"></script>
+    <script src="./buttons/currency.js"></script>
+    <script src="./buttons/upgrade.js"></script>
+    <script src="./buttons/block.js"></script>
+    <script src="./buttons/attack.js"></script>
+    <script src="./buttons/research.js"></script>
+    
+    <script src="./index.js"></script>
+  </body>
+</html>

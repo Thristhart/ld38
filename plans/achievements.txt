@@ -1,0 +1,6 @@
+STAGES:
+  S1:
+    Gain 5 Currency.
+  S2:
+    Gain 50 Currency. || Avoid attacks for 30 seconds
+    Block an attack.

@@ -1,0 +1,44 @@
+Incremental(Clicker?) game
+
+A Small World
+
+Fun with buttons and size and viewing windows.
+
+Screen expands with "Achievements".
+
+
+
+Questions:
+1) How do we do User Interface? Scales? Is positional? Is unlockable?
+
+Positional and Unlockable?
+
+2) Are we going somewhere with this? I'd vote for a microscopic grid of buttons, that possibly gain sentience and run away.
+
+Murder???
+
+3) Do we allow the user to alter his direction and how and where? (STAGES OR FLAGS?)
+
+Nope
+
+4) Do acheivements work as gates or currency?
+
+Gates, currently
+
+5) Who are we fighting?
+
+
+
+Minor Cosmetic Changes:
+-Achievements stacking-
+-Enemy "clicking"-
+Zones
+
+
+Plans:
+Enemy health - X
+Achievement Button/Screen/Zone - X
+Safe Cracking mini-game.(Research?)
+Enemy money. - X
+Shop Upgrades(Atk Speed and Def Duration) - X
+Research Upgrades(Atk ?Poison? and Def Effect/Hits)

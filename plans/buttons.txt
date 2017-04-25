@@ -1,0 +1,7 @@
+STAGES:
+  S1:
+    Increase Currency By 1.
+  S2:
+    Avoid attacks for 30 seconds.
+    Block the next attack(lasts 2 seconds)
+  S3:

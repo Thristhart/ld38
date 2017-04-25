@@ -1,0 +1,527 @@
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  
+  width: 100%;
+  height: 100%;
+}
+
+#viewport {
+  width: 100vmin;
+  height: 100vmin;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  overflow: hidden;
+  transform: translateZ(0);
+  
+}
+
+.shake {
+  animation: shake 200ms linear;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#display {
+  width: 87.5em;
+  height: 81.1em;
+  background-color: cornflowerblue;
+  
+  display: grid;
+  
+  grid-template-columns: repeat(21, 3.5em);
+  grid-template-rows: repeat(21, 3.5em);
+  
+  grid-column-gap: 0.70rem;
+  grid-row-gap: 0.40rem;
+  
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  
+  opacity: 0;
+}
+#display.loaded {
+  transition: transform 300ms ease-in, opacity 200ms linear;
+  opacity: 1;
+}
+#display * {
+  align-self: center;
+  justify-self: center;
+}
+
+#display button {
+  transform: translateZ(0);
+}
+
+.squareButton {
+  font-size: 1rem;
+  
+  width: 3.5rem;
+  height: 3.5rem;
+  white-space: nowrap;
+  
+  box-sizing: border-box;
+  
+  border: 1px solid black;
+  border-radius: 20%;
+  
+  background: #dddddd;
+  
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#display .squareButton:active {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+  transform: translateZ(0) scale(0.95);
+}
+#display .squareButton.enemy.fakePress {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+  transform: translateZ(0) scale(-0.95);
+}
+
+#centerButton {
+  grid-column-start: 11;
+  grid-row-start: 11;
+}
+.squareButton:disabled {
+  color: black;
+}
+#currency {
+  grid-column-start: 11;
+  grid-row-start: 12;
+  justify-self: start;
+  align-self: start;
+}
+#currency:before {
+  content: "💰";
+}
+
+#enemyCurrency {
+  grid-column-start: 11;
+  grid-row-start: 8;
+  justify-self: end;
+  align-self: end;
+  transform: translateZ(0) rotate(180deg);
+}
+#enemyCurrency:before {
+  content: "💰";
+}
+
+#display button.enemy {
+  grid-row-start: 9;
+  transform: translateZ(0) rotate(180deg);
+}
+
+#enemyCenterButton {
+  grid-column-start: 11;
+}
+#enemySwordButton {
+  grid-column-start: 12;
+  transition: transform 700ms ease-in;
+}
+#display #enemySwordButton.attack {
+  transform: translateZ(0) rotate(180deg) translateY(-4rem);
+}
+#enemyShieldButton {
+  grid-column-start: 10;
+}
+
+#shieldButton {
+  grid-column-start: 12;
+  grid-row-start: 11;
+  z-index: 2;
+}
+#display #upgradeShield {
+  grid-column-start: 13;
+  grid-row-start: 11;
+  transform: translateZ(0) scale(0.6);
+}
+#display #upgradeSword {
+  grid-column-start: 9;
+  grid-row-start: 11;
+  transform: translateZ(0) scale(0.6);
+}
+
+#display #upgradeSwordResearch {
+  grid-column-start: 8;
+  grid-row-start: 8;
+  transform: translateZ(0) scale(0.6);
+  z-index: 2;
+}
+#display #upgradeShieldResearch {
+  grid-column-start: 14;
+  grid-row-start: 8;
+  transform: translateZ(0) scale(0.6);
+  z-index: 2;
+}
+
+#connector1 {
+  grid-column-start: 9;
+  grid-column-end: 11;
+  grid-row-start: 11;
+  background-color: black;
+  width: 42%;
+  align-self: center;
+  justify-self: start;
+  height: 0.2rem;
+  transform: translateX(1rem);
+}
+
+#connector2 {
+  grid-column-start: 12;
+  grid-column-end: 14;
+  grid-row-start: 10;
+  grid-row-start: 11;
+  background-color: black;
+  width: 42%;
+  align-self: center;
+  justify-self: end;
+  height: 0.2rem;
+  transform: translateX(-1rem);
+}
+
+#shieldResearchConnector1 {
+  grid-column-start: 13;
+  grid-column-end: 15;
+  grid-row-start: 7;
+  grid-row-start: 8;
+  background-color: black;
+  width: 39%;
+  align-self: center;
+  justify-self: end;
+  height: 0.2rem;
+  transform: translateX(-1rem);
+  z-index: 1;
+}
+
+#shieldResearchConnector2 {
+  grid-column-start: 13;
+  grid-column-end: 15;
+  grid-row-start: 8;
+  grid-row-end: 13;
+  background-color: black;
+  height: 82%;
+  width: 0.2rem;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+}
+
+#shieldResearchConnector3 {
+  grid-column-start: 12;
+  grid-column-end: 14;
+  grid-row-start: 12;
+  grid-row-end: 13;
+  background-color: black;
+  width: 84.5%;
+  align-self: center;
+  justify-self: end;
+  height: 0.2rem;
+  transform: translateX(0.5rem);
+  z-index: 1;
+}
+
+
+#shieldResearchConnector4 {
+  grid-column-start: 12;
+  grid-column-end: 13;
+  grid-row-start: 11;
+  grid-row-end: 13;
+  background-color: black;
+  height: 50%;
+  width: 0.2rem;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+}
+
+#swordResearchConnector1 {
+  grid-column-start: 8;
+  grid-column-end: 10;
+  grid-row-start: 7;
+  grid-row-start: 8;
+  background-color: black;
+  width: 39%;
+  align-self: center;
+  justify-self: start;
+  height: 0.2rem;
+  transform: translateX(1rem);
+  z-index: 1;
+}
+
+#swordResearchConnector2 {
+  grid-column-start: 8;
+  grid-column-end: 10;
+  grid-row-start: 8;
+  grid-row-end: 13;
+  background-color: black;
+  height: 82%;
+  width: 0.2rem;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+}
+
+#swordResearchConnector3 {
+  grid-column-start: 9;
+  grid-column-end: 11;
+  grid-row-start: 12;
+  grid-row-end: 13;
+  background-color: black;
+  width: 84.5%;
+  align-self: center;
+  justify-self: start;
+  height: 0.2rem;
+  transform: translateX(-0.5rem);
+  z-index: 1;
+}
+
+
+#swordResearchConnector4 {
+  grid-column-start: 10;
+  grid-column-end: 11;
+  grid-row-start: 11;
+  grid-row-end: 13;
+  background-color: black;
+  height: 30%;
+  width: 0.2rem;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+  transform: translateY(0.9rem);
+}
+
+#upgradeSwordCost {
+  grid-column-start: 9;
+  grid-row-start: 11;
+  justify-self: center;
+  align-self: end;
+  font-size: 0.5rem;
+  z-index: 10;
+}
+#upgradeSwordCost:after {
+  content: "💰";
+}
+
+#upgradeShieldCost {
+  grid-column-start: 13;
+  grid-row-start: 11;
+  justify-self: center;
+  align-self: end;
+  font-size: 0.5rem;
+  z-index: 10;
+}
+#upgradeShieldCost:after {
+  content: "💰";
+}
+#upgradeShieldResearchCost {
+  grid-column-start: 14;
+  grid-row-start: 8;
+  justify-self: center;
+  align-self: end;
+  font-size: 0.5rem;
+  z-index: 10;
+}
+#upgradeShieldResearchCost:after {
+  content: "⚗️";
+}
+#upgradeSwordResearchCost {
+  grid-column-start: 8;
+  grid-row-start: 8;
+  justify-self: center;
+  align-self: end;
+  font-size: 0.5rem;
+  z-index: 10;
+}
+#upgradeSwordResearchCost:after {
+  content: "⚗️";
+}
+
+#swordUpgradesLabel {
+  grid-column-start: 10;
+  grid-row-start: 12;
+  justify-self: center;
+  align-self: start;
+  font-size: 0.5rem;
+  z-index: 10;
+}
+
+#shieldUpgradesLabel {
+  grid-column-start: 12;
+  grid-row-start: 12;
+  justify-self: center;
+  align-self: start;
+  font-size: 0.5rem;
+  z-index: 10;
+}
+
+#shieldButton.activated, #enemyShieldButton.activated {
+  background-color: green;
+  border-color: darkblue;
+}
+
+#swordButton.activated {
+  /* Nothing needed here */
+}
+#display #swordButton.attack {
+  transform: translateZ(0) translateY(-4rem);
+}
+
+button:focus {
+  outline: none;
+}
+
+#swordButton {
+  grid-column-start: 10;
+  grid-row-start: 11;
+  transition: transform 700ms ease-in;
+  z-index: 2;
+}
+
+#achievementLog {
+  grid-column: 10/13;
+  grid-row: 12/17;
+  
+  justify-self: stretch;
+  align-self: start;
+  
+  transform: translateZ(0) translateY(2.3em);
+}
+
+#achievementLog .cheevo {
+  width: 100%;
+  height: 0.8rem;
+  font-size: 0.5rem;
+  border: none;
+  text-align: center;
+}
+#achievementLog .cheevo.complete {
+  border-left: 3px solid green;
+  background-color: #d8ffd8;
+}
+#achievementLog .cheevo.complete:after {
+  content: "✔️";
+  float: right;
+}
+#achievementLog .enemy {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+#researchControl {
+  grid-column-start: 10;
+  grid-column-end: 13;
+  grid-row-start: 7;
+  
+  transform: translateZ(0) translateY(2.5em);
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+body {
+  --research-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+  --research-track-color: rgba(255, 255, 255, 1);
+}
+input[type=range]:focus {
+  outline: none;
+}
+::range-thumb {
+  box-shadow: var(--research-shadow);
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: var(--research-track-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+::range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: var(--research-track-color);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+#researchPointContainer {
+  grid-column-start: 14;
+  grid-column-end: 15;
+  grid-row-start: 9;
+  grid-row-end: 14;
+  
+  border: 1px solid black;
+  
+  border-radius: 0 0 20% 20%;
+  
+  justify-self: end;
+  align-self: stretch;
+  
+  width: 50%;
+  
+  transition: background-image 500ms linear;
+}
+#researchPoints {
+  grid-column-start: 14;
+  grid-row-start: 14;
+  justify-self: end;
+  align-self: start;
+}
+#researchPoints:before {
+  content: "⚗️";
+}
+
+
+#jukebox {
+  grid-column-start: 10;
+  grid-column-end: 13;
+  grid-row-start: 6;
+}
+#endMessage {
+  grid-column-start: 8;
+  grid-column-end: 15;
+  grid-row-start: 16;
+  font-size: 0.8em;
+}
+#endMessage a {
+  color: white;
+  text-decoration: underline;
+}
+
+#doggo {
+  background-image: url('./static/bark1.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  grid-column-start: 7;
+  grid-row-start: 7;
+  width: 100px;
+  height: 100px;
+}
+
+#doggo.bark {
+  background-image: url('./static/bark2.png');
+}

@@ -1,0 +1,6 @@
+
+Cheevo for depleting the enemy.
+
+BUGFIXES
+Disabling via cheevo
+Nega-money (refactor depleting enemy currency into function)
